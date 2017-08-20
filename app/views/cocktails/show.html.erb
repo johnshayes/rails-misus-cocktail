@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-sm-4">
+    <h1><%= @cocktail.name %></h1>
+      <ul class="list-inline">
+        <% @doses.each do |cocktail| %>
+        <li>
+          <%= cocktail.ingredient.name %> <%= cocktail.description %>
+        </li>
+        <% end %>
+      </ul>
+
+      <%= link_to "Add ingredients", new_cocktail_dose_path(@cocktail),
+      class: "btn btn-primary" %>
+
+      <%#= render "doses/form" %>
+    </div>
+
+  </div>
+
+</div>
+
+
+---
+
+
+<!--   <% if @cocktail.photo? %>
+  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
+  <% else %>
+  <%= simple_form_for(@cocktail) do |f| %>
+  <%= f.input :photo, as: :attachinary %>
+  <%= f.submit %>
+  <% end %>
+  <% end %>
+ -->
+
+<!-- <div class="row">
+  <h2>Doses</h2>
+  <% @cocktail.doses.each do |dose| %>
+  <div class="col-xs-12 col-sm-4">
+    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://fillmurray.com/360/175');">
+      <div class="description">
+        <h2><%= dose.ingredient.name %></h2>
+        <p><%= dose.description %></p>
+      </div>
+      <%= link_to 'Delete', dose_path(dose), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      <br/><br/>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="row">
+  <h2><%= link_to 'Add new dose', new_cocktail_dose_path(@cocktail) %><br/></h2>
+  <h2><%= link_to 'Back', cocktails_path %></h2>
+</div>
+ -->

@@ -1,0 +1,16 @@
+<h1>All doses</h1>
+
+<ul class="list-inline">
+  <% @doses.each do |dose| %>
+  <li>
+    <h4>
+      <%= Cocktail.find(dose.cocktail_id).name %>
+    </h4>
+    <p>
+    <%= Ingredient.find(dose.ingredient_id).name %>
+    <%= dose.description %>
+    </p>
+    <%= link_to "Delete", dose_path(d), method: :delete %>
+  </li>
+  <% end %>
+</ul>

@@ -5,6 +5,23 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Gemfile
+ruby '2.3.4'
+
+# front-end setup
+gem "bootstrap-sass"
+gem "font-awesome-sass"
+gem "simple_form"
+gem "autoprefixer-rails"
+
+gem 'figaro'
+
+gem 'jquery-rails'
+
+# Image stuff:
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -33,8 +50,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Gemfile
-ruby '2.3.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
