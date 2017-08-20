@@ -1,24 +1,27 @@
-<div class="container">
-  <div class="row">
-    <h1>Check out these cocktails!</h1>
+<h1 class="text-center">Cocktail list</h1>
 
-    <% @cocktails.each do |cocktail| %>
-    <div class="col-xs-12 col-md-6 col-sm-4">
-      <ul class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://fillmurray.com/360/175');">
-      <li>
-        <%= link_to cocktail.name, cocktail_path(cocktail.id) %>
-      </li>
-    </ul>
-    <% end %>
-  </div>
-
-  <%= link_to "All dose options", doses_path, class: "btn btn-primary" %>
+<div class="text-center padded">
+  <%= link_to "Create a cocktail", new_cocktail_path, class: "btn btn-primary" %>
 </div>
 
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card text-center">
 
-<!--     </div>
-    <div class="row">
-      <h2><%= link_to 'New Cocktail', new_cocktail_path %></h2>
-    </div>
+          <% if cocktail.picture %>
+            <div class="card-header" style="background-image: url('<%= image_path cocktail.picture%>')">
+            </div>
+          <% else %>
+            <div class="card-header" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
+            </div>
+          <% end %>
+          <div class="card-body">
+            <%= link_to cocktail.name, cocktail_path(cocktail) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
- -->
+</div>

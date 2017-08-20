@@ -6,27 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "wodka")
-Ingredient.create(name: "gin")
-Ingredient.create(name: "whisky")
+
+Cocktail.destroy_all
+Ingredient.destroy_all
+
+cocktails = [
+  {
+    name: "Old Fashioned",
+    picture: "http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg"
+    },
+  {
+    name: "Margarita",
+    picture: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-margarita.jpg"
+    },
+  {
+    name: "Bloody Mary",
+    picture: "http://www.seriouseats.com/images/2015/03/twase-20150320-21.jpg"
+    },
+  {
+    name: "Irish Coffee",
+    picture: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-irish-coffee.jpg"
+    },
+  {
+    name: "Negroni",
+    picture: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-negroni.jpg"
+    },
+   {
+    name: "Whiskey Sour",
+    picture: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-whiskey-sour.jpg"
+    },
+  {
+    name: "Cosmopolitan",
+    picture: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-cosmopolitan.jpg"
+    }
+]
+
+ingredients = %w(lemon ice mint leaves redbull jagermeister sugar tonic gin rhum)
+ingredients.each { |ingredient| Ingredient.create(name: ingredient) }
 
 
-Cocktail.create(name: "White Russian")
-Cocktail.create(name: "Capriosca")
-Cocktail.create(name: "Old Fashioned")
-
-# Dose.create(description: "3", cocktail_id: 1, ingredient_id: 1)
-# Dose.create(description: "2", cocktail_id: 1, ingredient_id: 2)
-# Dose.create(description: "2", cocktail_id: 1, ingredient_id: 3)
-# Dose.create(description: "4 cl", cocktail_id: 1, ingredient_id: 4)
-
-# Dose.create(description: "3", cocktail_id: 2, ingredient_id: 1)
-# Dose.create(description: "2", cocktail_id: 2, ingredient_id: 2)
-# Dose.create(description: "4 cl", cocktail_id: 2, ingredient_id: 5)
-
-# Dose.create(description: "3", cocktail_id: 3, ingredient_id: 1)
-# Dose.create(description: "2", cocktail_id: 3, ingredient_id: 2)
-# Dose.create(description: "4 cl", cocktail_id: 3, ingredient_id: 5)
+cocktails.each { |cocktail| Cocktail.create(cocktail) }
